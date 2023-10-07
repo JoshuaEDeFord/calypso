@@ -1,0 +1,12 @@
+{
+  "name": "calypso-backend",
+  "version": "1.0.0",
+  "dependencies": {
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.123",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}

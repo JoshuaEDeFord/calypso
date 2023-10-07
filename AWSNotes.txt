@@ -1,0 +1,5 @@
+RDS
+database-1
+uname: postgres 
+alibaba: osott
+curl -X POST -H "Content-Type: application/json" -d "{\"minLat\": 89,\"maxLat\": 90,\"minLng\": 36,\"maxLng\": 37}" https://zz34obpgwnq5ppbupig4tvpepe0acdbx.lambda-url.us-west-2.on.aws/cell-query

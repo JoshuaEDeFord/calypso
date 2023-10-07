@@ -1,0 +1,26 @@
+DbLoader  Saved 16,243,999 of 73,875,242 Cells (22%) IO 4.192 cells per ms. :: Overall 2.841295 cells per ms.
+
+java.sql.BatchUpdateException: Batch entry 19,432 INSERT INTO vertex_cell (cell_id, vertex_idx, sequence) VALUES('4f85bc5f-a5a3-4674-9ba1-9bd3ea689ab7', 32510802, 4) was aborted: ERROR: could not extend file "base/5/16798.6": No space left on device
+  Hint: Check free disk space.  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:165)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2402)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2134)
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1491)
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1516)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:560)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:896)
+	at org.postgresql.jdbc.PgStatement.executeLargeBatch(PgStatement.java:1097)
+	at com.d4dl.permean.mesh.StatementWriter.persistCells(StatementWriter.java:119)
+	at com.d4dl.permean.mesh.StatementWriter.doCells(StatementWriter.java:97)
+	at com.d4dl.permean.mesh.StatementWriter.doCells(StatementWriter.java:91)
+	at com.d4dl.permean.mesh.StatementWriter.add(StatementWriter.java:196)
+	at com.d4dl.permean.io.BatchedDBCellWriter.writeCell(BatchedDBCellWriter.java:34)
+	at com.d4dl.permean.io.BatchedDBCellWriter.writeCell(BatchedDBCellWriter.java:43)
+	at com.d4dl.permean.io.AbstractCellReader.readCells(AbstractCellReader.java:49)
+	at com.d4dl.permean.io.AbstractCellReader.readCells(AbstractCellReader.java:83)
+	at com.d4dl.permean.io.BatchedDBCellWriter.main(BatchedDBCellWriter.java:70)
+Caused by: org.postgresql.util.PSQLException: ERROR: could not extend file "base/5/16798.6": No space left on device
+  Hint: Check free disk space.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	... 15 more
