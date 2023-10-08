@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Box } from '@mui/material';
 import Sidebar from './features/sidebar/Sidebar';
 import Header from './features/header/Header';
-import Map from './features/map/Map';
+import Map from './features/map/CellMap';
 
 const App: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

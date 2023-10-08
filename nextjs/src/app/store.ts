@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 import counterReducer from '../features/counter/counterSlice'
+import cellsReducer from '../features/map/cellsSlice'
 import { cellsApi } from '../services/cells'
 import { setupListeners } from '@reduxjs/toolkit/query'
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    cells: cellsReducer,
     [cellsApi.reducerPath]: cellsApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,

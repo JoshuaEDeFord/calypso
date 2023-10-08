@@ -1,0 +1,1 @@
+minLng, maxLng, minLat, maxLat query doesn't work when the earth LOOPS around

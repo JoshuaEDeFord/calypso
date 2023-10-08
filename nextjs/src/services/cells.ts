@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import type { CellPayload, CellQuery } from '../../node/types';
+import type { CellPayload, CellQuery } from '../../../node/types';
 
 // Define a service using a base URL and expected endpoints
 export const cellsApi = createApi({

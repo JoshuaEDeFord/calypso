@@ -1,7 +1,6 @@
-import { APIGatewayEvent, APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
-import { Cell, CellPayload, CellQuery, PGCellRow, PGResult, Vertex } from './types';
-import { Pool } from 'pg';
-import { cellQuery } from './queries';
+import { CellPayload, CellQuery, PGCellRow, PGResult } from './types'
+import { Pool } from 'pg'
+import { cellQuery } from './queries'
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -10,9 +9,9 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
   ssl: {
-    rejectUnauthorized: false  // Note: this should be set to true in production and provide CA if necessary
-  }
-});
+    rejectUnauthorized: false, // Note: this should be set to true in production and provide CA if necessary
+  },
+})
 
 const queryCells = async (
   minLat: number,
@@ -57,7 +56,12 @@ export const handler = async (event: any) => {
   switch (event.rawPath) {
     case '/cell-query':
       const cellsAndVertices = await queryCells(cellQuery.minLat, cellQuery.maxLat, cellQuery.minLng, cellQuery.maxLng);
-      return {statusCode: 200, body: JSON.stringify(cellsAndVertices, null, 2) };
+      return {statusCode: 200, headers: { 
+        // 'Access-Control-Allow-Origin': '*', 
+        // 'Access-Control-Allow-Headers': '*',
+        // 'Access-Control-Allow-Methods': '*'
+        }, 
+        body: JSON.stringify(cellsAndVertices, null, 2) };
       
 
   }
